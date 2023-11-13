@@ -4,8 +4,6 @@ import readline from 'readline';
 
 import resetPrompt from './utils/resetPrompt.js';
 
-import config from '../config.js';
-
 const nuker = new Client({
     intents: Object.keys(GatewayIntentBits).filter(a => isNaN(a)).map(a => GatewayIntentBits[a])
 });
