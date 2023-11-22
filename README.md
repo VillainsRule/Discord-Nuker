@@ -11,6 +11,7 @@
 - It's fully open source, not a suspicious EXE you have to trust.
 - There's no "paid version" or requirement - it's free!
 - It's user friendly & fast.
+- We support both bots & selfbots.
 
 <br>
 <h2 align="center">Installation</h2>
@@ -20,8 +21,15 @@
     - If it says 'git' is not known or some other similar error, [download Git](https://git-scm.com/downloads) and try again.
 3. Run `npm i && node.` to install our dependencies and run.
 
-<br>
 It's that simple!<br>
-Enjoy nuking :v<br>
+
 <br>
+<h2 align="center">Configuration</h2>
+
+When you boot the program, you'll be asked a few questions.<br>
+To make startup faster each time, set these in config.txt.<br>
+I'm not gonna explain how config.txt works, because it's obvious.
+
+<br>
+Enjoy nuking :v<br>
 <h5 align="center">made with ❤️ by thonk</h5>
