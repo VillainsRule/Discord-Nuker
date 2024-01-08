@@ -1,4 +1,3 @@
-import { ChannelType } from 'discord.js-selfbot-v13';
 import Handler from '../../handler.js';
 
 const handler = new Handler('Mass Create Channels', 'self');
@@ -15,10 +14,7 @@ export default async () => {
 
     for (let i = 0; i < amount; i++) {
         if (guild.channels.cache.size === 500) break;
-        await guild.channels.create({
-            name: channelName,
-            type: ChannelType.GuildText,
-        })
+        await guild.channels.create(channelName)
             .then(() => handler.log(`Created channel ${i + 1} of ${amount}.`))
             .catch((err) => handler.error('Error creating channel: ' + err.message));
     };

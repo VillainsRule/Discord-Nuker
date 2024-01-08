@@ -12,7 +12,7 @@ export default async () => {
         let channelArray = [...channels.values()];
         for (let i = 0; i < channelArray.length; i++) {
             let c = channelArray[i];
-            if (c.type !== 0) continue;
+            if (c.type !== 'GUILD_TEXT') continue;
             await c.send(msg)
                 .then(() => handler.log('Message sent in #' + c.name))
                 .catch((err) => handler.error('Error sending message in ' + c.name + ': ' + err));

@@ -1,4 +1,4 @@
-import Handler from '../../utils/logger.js';
+import Handler from '../../handler.js';
 
 const handler = new Handler('Ban Everyone', 'self');
 

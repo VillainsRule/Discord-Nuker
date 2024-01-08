@@ -13,10 +13,8 @@ export default async () => {
         let channelArray = [...channels.values()];
         for (let i = 0; i < channelArray.length; i++) {
             let c = channelArray[i];
-            if (c.type !== 0) continue;
-            let newhook = await c.createWebhook({
-                name: hook
-            });
+            if (c.type !== 'GUILD_TEXT') continue;
+            let newhook = await c.createWebhook(hook);
             await newhook.send(msg)
                 .then(() => handler.log('Message sent in #' + c.name))
                 .catch((err) => handler.error('Error sending message in ' + c.name + ': ' + err));
