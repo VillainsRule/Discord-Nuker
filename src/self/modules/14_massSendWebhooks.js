@@ -14,10 +14,11 @@ export default async () => {
         for (let i = 0; i < channelArray.length; i++) {
             let c = channelArray[i];
             if (c.type !== 'GUILD_TEXT' && c.type !== 'GUILD_NEWS') continue;
-            let newhook = await c.createWebhook(hook);
-            await newhook.send(msg)
+            let newhook = await c.createWebhook(hook)
+                .catch(err => handler.error('Error creating webhook in #' + c.name + ': ' + err));
+            if (newhook) await newhook.send(msg)
                 .then(() => handler.log('Message sent in #' + c.name))
-                .catch((err) => handler.error('Error sending message in ' + c.name + ': ' + err));
+                .catch((err) => handler.error('Error sending message in #' + c.name + ': ' + err));
         };
         handler.endLog('Messages sent in all channels!');
     };
