@@ -16,10 +16,11 @@ export default async () => {
             if (c.type !== 0) continue;
             let newhook = await c.createWebhook({
                 name: hook
-            });
-            await newhook.send(msg)
+            })
+                .catch(err => handler.error('Error creating webhook in #' + c.name + ': ' + err));
+            if (newhook) await newhook.send(msg)
                 .then(() => handler.log('Message sent in #' + c.name))
-                .catch((err) => handler.error('Error sending message in ' + c.name + ': ' + err));
+                .catch((err) => handler.error('Error sending message in #' + c.name + ': ' + err));
         };
         handler.endLog('Messages sent in all channels!');
     };
