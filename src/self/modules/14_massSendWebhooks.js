@@ -13,7 +13,7 @@ export default async () => {
         let channelArray = [...channels.values()];
         for (let i = 0; i < channelArray.length; i++) {
             let c = channelArray[i];
-            if (c.type !== 'GUILD_TEXT' && c.type !== 'GUILD_NEWS') continue;
+            if (c.type !== 0) continue;
             let newhook = await c.createWebhook(hook)
                 .catch(err => handler.error('Error creating webhook in #' + c.name + ': ' + err));
             if (newhook) await newhook.send(msg)
